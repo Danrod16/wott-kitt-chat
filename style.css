@@ -70,7 +70,7 @@ a {
     padding: 30px;
 
     > * + * {
-        margin-top: 40px;
+        margin-top: 30px;
     }
 }
 
@@ -113,6 +113,7 @@ a {
     border-radius: 10px;
     color: #1a1a1a;
     font: 300 16px/1 'Roboto', sans-serif;
+    margin-bottom: 10px;
 }
 
 .Chat-dots {
@@ -150,6 +151,12 @@ a {
 .modal {
     display: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Chat-timestamp {
+    color: #b9b9b9;
+    margin-left: 10px;
+    font: 300 10px/1 'Roboto', sans-serif;
 }
 
 .Chat-icon {

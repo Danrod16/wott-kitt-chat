@@ -58,7 +58,7 @@ function handleWottIconClick(modal) {
       return data.message; // Assuming the API response has a "message" field
     } catch (error) {
       console.error(error);
-      return 'Sorry, an error occurred.'; // Default message in case of an error
+      return 'Sorry, an error occurred. Try again later'; // Default message in case of an error
     }
   }
   
@@ -69,21 +69,22 @@ function handleWottIconClick(modal) {
   
     const userMessage = inputField.value;
     const messageDivUser = document.createElement('div');
-    const messageBubbleUser = `<span class="Chat-bubble">${userMessage}</span>`;
+    const messageBubbleUser = `<span class="Chat-bubble">${userMessage}</span><br><span class="Chat-timestamp">You - ${new Date().toLocaleTimeString()}</span>`;
   
     if (!userMessage) return;
   
     messageDivUser.classList.add('Chat-message', 'Chat-message--user');
     messageDivUser.innerHTML += messageBubbleUser;
   
-    messageContainer.insertBefore(messageDivUser, dots);
-    messageContainer.classList.add('Chat-messages--typing');
-  
+    
     // await sendUserMessage(userMessage); // Send user message to the API
-  
+    
     const messageDivBot = document.createElement('div');
     const botMessage = await getBotMessage(); // Call the API to get the bot's message
-    const messageBubbleBot = `<span class="Chat-bubble">${botMessage}</span>`;
+    messageContainer.insertBefore(messageDivUser, dots);
+    messageContainer.classList.add('Chat-messages--typing');
+
+    const messageBubbleBot = `<span class="Chat-bubble">${botMessage}</span><br><span class="Chat-timestamp">Wott - ${new Date().toLocaleTimeString()}</span>`;
     messageDivBot.classList.add('Chat-message', 'Chat-message--bott');
     messageDivBot.innerHTML += messageBubbleBot;
     messageContainer.insertBefore(messageDivBot, dots);
