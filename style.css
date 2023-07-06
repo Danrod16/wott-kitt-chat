@@ -3,7 +3,7 @@ body {
     background-image: url('images/bg-kitt.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 100vh;
     margin: 0;
     padding: 0;
